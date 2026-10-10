@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Theremin</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <video id="video" playsinline muted></video>
+
+    <div id="overlay" class="overlay">
+      <div class="start-panel">
+        <h1>Virtual Theremin</h1>
+        <p class="lede">
+          A multi-player theremin in the browser. Your body is the instrument—
+          antennas stay invisible unless you turn on the theremin overlay.
+        </p>
+
+        <ol class="directions">
+          <li>
+            Stand so your upper body and both hands are visible to the camera.
+          </li>
+          <li>
+            <strong>Pitch (right hand):</strong> move toward an invisible
+            vertical antenna to your right—closer raises the pitch.
+          </li>
+          <li>
+            <strong>Volume (left hand):</strong> lift above an invisible
+            horizontal antenna at your side—higher is louder. Make a fist to
+            mute.
+          </li>
+          <li>
+            Drop both hands below the instrument (or leave the frame) to go
+            silent—other players keep their own sound.
+          </li>
+          <li>
+            Open or close your right fingers for fine pitch / vibrato; twist the
+            wrist to warm or brighten the tone.
+          </li>
+          <li>More than one person can play at once; each body gets its own voice.</li>
+        </ol>
+
+        <button id="startBtn" type="button">Start Audio</button>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <aside id="hud" class="hud hidden" aria-label="Theremin controls">
+      <p class="hud-tip">
+        Right hand → pitch (closer to your right = higher). Left hand → volume
+        (higher = louder). Fist mutes.
+      </p>
+      <div class="hud-controls">
+        <label class="toggle">
+          <input id="poseOverlayToggle" type="checkbox" />
+          <span>Pose overlay</span>
+        </label>
+        <label class="toggle">
+          <input id="thereminOverlayToggle" type="checkbox" />
+          <span>Theremin overlay</span>
+        </label>
+        <label class="toggle">
+          <input id="reverseToggle" type="checkbox" />
+          <span>Reverse L/R</span>
+        </label>
+        <button id="stopBtn" type="button">Stop</button>
+      </div>
+    </aside>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>
